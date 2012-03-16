@@ -1,0 +1,231 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "js/typeahead.js",
+			"settings":
+			{
+				"buffer_size": 7938,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "typeahead.html",
+			"settings":
+			{
+				"buffer_size": 371,
+				"line_ending": "Windows",
+				"name": "<html>"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 311.0,
+		"selected_items":
+		[
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			],
+			[
+				"tid",
+				"Tidy HTML"
+			]
+		],
+		"width": 400.0
+	},
+	"console":
+	{
+		"height": 186.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/Documents and Settings/ittxr/Application Data/Sublime Text 2/Packages/HtmlTidy/HtmlTidy.sublime-settings",
+		"/C/Documents and Settings/ittxr/Application Data/Sublime Text 2/Packages/HtmlTidy/html_tidy.py",
+		"/C/Documents and Settings/ittxr/Application Data/Sublime Text 2/Packages/HtmlTidy/HtmlTidy.sublime-commands",
+		"/C/Development/Projects/JS/Typeahead/js/site.js",
+		"/C/Documents and Settings/ittxr/Application Data/Sublime Text 2/Packages/Sublime-HTMLPrettify/scripts/run.js",
+		"/C/Documents and Settings/ittxr/Application Data/Sublime Text 2/Packages/Sublime-HTMLPrettify/scripts/beautify.js",
+		"/C/Documents and Settings/ittxr/Application Data/Sublime Text 2/Packages/User/Pretty JSON.sublime-settings",
+		"/C/Documents and Settings/ittxr/Application Data/Sublime Text 2/Packages/Pretty JSON/Default (Windows).sublime-keymap",
+		"/C/Documents and Settings/ittxr/Application Data/Sublime Text 2/Packages/Pretty JSON/Pretty JSON.sublime-settings",
+		"/C/Documents and Settings/ittxr/Application Data/Sublime Text 2/Packages/sublime-jslint/sublime-jslint.sublime-settings",
+		"/C/Documents and Settings/ittxr/Application Data/Sublime Text 2/Packages/User/sublime-jslint.sublime-settings",
+		"/C/Documents and Settings/ittxr/Application Data/Sublime Text 2/Packages/Sublime-HTMLPrettify/package-metadata.json",
+		"/C/Documents and Settings/ittxr/Application Data/Sublime Text 2/Packages/Default/Default (Windows).sublime-keymap",
+		"/C/Documents and Settings/ittxr/Application Data/Sublime Text 2/Packages/ZenCoding/Default (Windows).sublime-keymap",
+		"/C/Documents and Settings/ittxr/Application Data/Sublime Text 2/Packages/JsFormat/Default (Windows).sublime-keymap",
+		"/C/Development/Projects/JS/Typeahead/typeahead.js",
+		"/C/Documents and Settings/ittxr/Application Data/Sublime Text 2/Packages/User/Distraction Free.sublime-settings"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"Toronto"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "js/typeahead.js",
+					"settings":
+					{
+						"buffer_size": 7938,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								7362,
+								7362
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 5341.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "typeahead.html",
+					"settings":
+					{
+						"buffer_size": 371,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								371,
+								371
+							]
+						],
+						"settings":
+						{
+							"auto_name": "<html>",
+							"syntax": "Packages/HTML/HTML.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 26.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"replace":
+	{
+		"height": 0.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": false,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 255.0,
+	"status_bar_visible": true
+}
