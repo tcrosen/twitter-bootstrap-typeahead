@@ -2,37 +2,46 @@ typeahead.js
 ============
 
 An extension of the Twitter Bootstrap Typeahead plugin (as of v2.0.2)
+
 <http://twitter.github.com/bootstrap/javascript.html#typeahead>
 
 required
 -----------------
-Bootstrap CSS v2.0+
-jQuery JS v1.7+
+* Bootstrap CSS v2.0+
+* jQuery JS v1.7+
 
 about
 -----
-All the thanks in the world to @mdo and @fat for this wonderful utility.
-I required more functionality out of the basic typeahead plugin so I created this simple extension.
+All the thanks in the world to @mdo and @fat of @twitter for the wonderful Bootstrap utility.
+I required more functionality out of the typeahead plugin that was included so I created this simple extension.
 
 changes
 -------
 
 **options:**
 
-**matchProp**
+* matchProp
+
 Default: *name*
+
 Usage: The object property to match against.
 
-**sortProp**
+* sortProp
+
 Default: *name*
+
 Usage: The object property to use when sorting the items.
 
-**valueProp**
+* valueProp
+
 Default: *id*
+
 Usage: The object property to return when an item is selected.
 
-**itemSelected**
+* itemSelected
+
 Default: function () {}
+
 Usage: The callback function that is invoked when an item is chosen.  Accepts a single argument which is the value as indicated by *valueProp*
 
 sample usage
