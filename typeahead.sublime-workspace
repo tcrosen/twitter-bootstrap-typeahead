@@ -7,23 +7,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "js/typeahead.js",
-			"settings":
-			{
-				"buffer_size": 7938,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "typeahead.html",
-			"settings":
-			{
-				"buffer_size": 371,
-				"line_ending": "Windows",
-				"name": "<html>"
-			}
-		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -33,14 +16,22 @@
 		[
 			[
 				"Package Control: ",
+				"Package Control: List Packages"
+			],
+			[
+				"Package Control: inst",
 				"Package Control: Install Package"
+			],
+			[
+				"Package Control:list",
+				"Package Control: List Packages"
 			],
 			[
 				"tid",
 				"Tidy HTML"
 			]
 		],
-		"width": 400.0
+		"width": 552.0
 	},
 	"console":
 	{
@@ -57,6 +48,16 @@
 	},
 	"file_history":
 	[
+		"/C/Development/Projects/JS/Typeahead/typeahead.html",
+		"/C/Documents and Settings/ittxr/Application Data/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+		"/C/Documents and Settings/ittxr/Application Data/Sublime Text 2/Packages/Default/Preferences.sublime-settings",
+		"/C/Documents and Settings/ittxr/Application Data/Sublime Text 2/Packages/Alignment/Default (Windows).sublime-keymap",
+		"/C/Documents and Settings/ittxr/Application Data/Sublime Text 2/Packages/User/Default (Windows).sublime-keymap",
+		"/C/Development/Projects/JS/Typeahead/js/typeahead.js",
+		"/C/Documents and Settings/ittxr/Application Data/Sublime Text 2/Packages/Alignment/Base File.sublime-settings",
+		"/C/Documents and Settings/ittxr/Application Data/Sublime Text 2/Packages/Theme - Soda/Soda Dark.sublime-theme",
+		"/C/Documents and Settings/ittxr/Application Data/Sublime Text 2/Packages/Theme - Soda/package-metadata.json",
+		"/C/Documents and Settings/ittxr/Application Data/Sublime Text 2/Packages/Git/Default.sublime-commands",
 		"/C/Documents and Settings/ittxr/Application Data/Sublime Text 2/Packages/HtmlTidy/HtmlTidy.sublime-settings",
 		"/C/Documents and Settings/ittxr/Application Data/Sublime Text 2/Packages/HtmlTidy/html_tidy.py",
 		"/C/Documents and Settings/ittxr/Application Data/Sublime Text 2/Packages/HtmlTidy/HtmlTidy.sublime-commands",
@@ -109,64 +110,8 @@
 	"groups":
 	[
 		{
-			"selected": 0,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "js/typeahead.js",
-					"settings":
-					{
-						"buffer_size": 7938,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								7362,
-								7362
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 5341.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "typeahead.html",
-					"settings":
-					{
-						"buffer_size": 371,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								371,
-								371
-							]
-						],
-						"settings":
-						{
-							"auto_name": "<html>",
-							"syntax": "Packages/HTML/HTML.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 26.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				}
 			]
 		}
 	],
@@ -216,11 +161,11 @@
 	},
 	"select_project":
 	{
-		"height": 0.0,
+		"height": 500.0,
 		"selected_items":
 		[
 		],
-		"width": 0.0
+		"width": 380.0
 	},
 	"show_minimap": false,
 	"show_open_files": false,
