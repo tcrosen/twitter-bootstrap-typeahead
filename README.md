@@ -6,8 +6,8 @@ An extension of the Twitter Bootstrap Typeahead plugin (as of v2.0.2)<br />
 
 required
 -----------------
-* Bootstrap CSS v2.0+
-* jQuery JS v1.7+
+* Twitter Bootstrap 2.0.2
+* jQuery 1.7.1
 
 about
 -----
@@ -32,7 +32,7 @@ Default: *id*<br />
 Usage: The object property to return when an item is selected.
 
 **itemSelected**<br />
-Default: function () {}<br />
+Default: *function () {}*<br />
 Usage: The callback function that is invoked when an item is chosen.  Accepts a single argument which is the value as indicated by *valueProp*
 
 sample usage
