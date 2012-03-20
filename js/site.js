@@ -6,12 +6,12 @@ var cities = [
 		{ID: 5, Name: 'Boston'},
 		{ID: 6, Name: 'Columbus'},
 		{ID: 7, Name: 'Dallas'},
-		{ID: 8, Name: 'Vancouver'},
+		{ID: 8, Name: 'Vancouver'},		
 		{ID: 9, Name: 'Seattle'},
 		{ID: 10, Name: 'Los Angeles'}
 	];
 
-$(function(){
+$(function() {
 	$('#typeaheadTest').typeahead({
 		source: cities,
 		matchProp: 'Name',

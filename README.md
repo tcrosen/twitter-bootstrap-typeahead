@@ -1,8 +1,7 @@
 typeahead.js
 ============
 
-An extension of the Twitter Bootstrap Typeahead plugin (as of v2.0.2)
-
+An extension of the Twitter Bootstrap Typeahead plugin (as of v2.0.2)<br />
 <http://twitter.github.com/bootstrap/javascript.html#typeahead>
 
 required
@@ -20,28 +19,20 @@ changes
 
 **options:**
 
-**matchProp**
-
-Default: *name*
-
+**matchProp**<br />
+Default: *name*<br />
 Usage: The object property to match against.
 
-**sortProp**
-
-Default: *name*
-
+**sortProp**<br />
+Default: *name*<br />
 Usage: The object property to use when sorting the items.
 
-**valueProp**
-
-Default: *id*
-
+**valueProp**<br />
+Default: *id*<br />
 Usage: The object property to return when an item is selected.
 
-**itemSelected**
-
-Default: function () {}
-
+**itemSelected**<br />
+Default: function () {}<br />
 Usage: The callback function that is invoked when an item is chosen.  Accepts a single argument which is the value as indicated by *valueProp*
 
 sample usage

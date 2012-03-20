@@ -31,7 +31,7 @@ function($) {
       this.select =       this.options.select       || this.select;
       this.render =       this.options.render       || this.render;
 
-      // Run the listener    
+      // Run the event listener    
       this.listen();
     }
 
