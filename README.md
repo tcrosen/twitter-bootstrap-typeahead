@@ -43,8 +43,8 @@ Description: The object property to use when sorting the items.
 
 **itemSelected**<br />
 Default: *function (item, val, text) {}*<br />
-Description: The callback function that is invoked when an item is chosen.<br />  
-Params: <br />
+Description: The callback function that is invoked when an item is chosen.
+Params:
 
 + the HTML element that was selected
 
