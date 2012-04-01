@@ -45,8 +45,11 @@ Description: The object property to use when sorting the items.
 Default: *function (item, val, text) {}*<br />
 Description: The callback function that is invoked when an item is chosen.<br />  
 Params: <br />
+
 + the HTML element that was selected
+
 + value of the *valueProp* property
+
 + value of the *textProp* property
 
 Sample Usage
