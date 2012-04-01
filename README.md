@@ -11,8 +11,8 @@ Required
 
 About
 -----
-All the thanks in the world to [@mdo](https://twitter.com/#!/mdo) and [@fat](https://twitter.com/#!/fat) of [@twitter](https://twitter.com/) for the wonderful Bootstrap utility.<br /><br />
-I required more functionality out of the typeahead plugin that was included so I created this simple extension.
+All the thanks in the world to [@mdo](https://twitter.com/#!/mdo) and [@fat](https://twitter.com/#!/fat) of [@twitter](https://twitter.com/) for the wonderful Bootstrap utility.<br />
+I required more functionality out of the typeahead plugin so I created this simple extension.  I do plan to add more features in the future.
 
 Changes from the Original
 -------
