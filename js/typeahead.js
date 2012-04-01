@@ -3,7 +3,7 @@
 //  Custom implementation of Twitter Bootstrap Typeahead plugin
 //  http://twitter.github.com/bootstrap/javascript.html#typeahead
 //
-//  v1.0
+//  v1.0.1
 //  Terry Rosen  -  @rerrify
 //
 //  Requires jQuery 1.7+ and Twitter Bootstrap
@@ -13,25 +13,17 @@ function($) {
 
   "use strict"
 
-  // --------------------------------------------------------
-  //
-  //  Constructor
-  //
   var Typeahead = function(element, options) {
       this.$element =     $(element)
       this.options =      $.extend({}, $.fn.typeahead.defaults, options)
       this.$menu =        $(this.options.menu).appendTo('body')      
       this.source =       this.options.source
       this.shown =        false
-
-      // Overridable functions
       this.matcher =      this.options.matcher      || this.matcher
       this.sorter =       this.options.sorter       || this.sorter
       this.highlighter =  this.options.highlighter  || this.highlighter
       this.select =       this.options.select       || this.select
-      this.render =       this.options.render       || this.render
-
-      // Run the event listener    
+      this.render =       this.options.render       || this.render  
       this.listen()
     }
 
@@ -39,10 +31,6 @@ function($) {
 
     constructor: Typeahead
 
-    // --------------------------------------------------------
-    //
-    //  An item was selected from the list
-    //
     ,
     select: function() {
       var $selectedItem = this.$menu.find('.active')
@@ -51,10 +39,6 @@ function($) {
       return this.hide()
     }
 
-    // --------------------------------------------------------
-    //
-    //  Show the menu
-    //
     ,
     show: function() {
       var pos = $.extend({}, this.$element.offset(), {
@@ -72,10 +56,6 @@ function($) {
       return this
     }
 
-    // --------------------------------------------------------
-    //
-    //  Hide the menu
-    //
     ,
     hide: function() {
       this.$menu.hide()
@@ -84,10 +64,6 @@ function($) {
       return this
     }
 
-    // --------------------------------------------------------
-    //
-    //  Search for an item in the source
-    //
     ,
     lookup: function(event) {
       var _this = this
@@ -114,19 +90,11 @@ function($) {
       return this.render(items.slice(0, this.options.items)).show()
     }
 
-    // --------------------------------------------------------
-    //
-    //  Looks for a match
-    //
     ,
     matcher: function(val) {
       return ~val.toLowerCase().indexOf(this.query.toLowerCase())
     }
 
-    // --------------------------------------------------------
-    //
-    //  Sort the results
-    //
     ,
     sorter: function(items) {
       var _this = this
@@ -145,10 +113,6 @@ function($) {
       return beginswith.concat(caseSensitive, caseInsensitive)
     }
 
-    // --------------------------------------------------------
-    //
-    //  Highlight the characters found in the items
-    //
     ,
     highlighter: function(item) {
       return item.replace(new RegExp('(' + this.query + ')', 'ig'), function($1, match) {
@@ -156,10 +120,6 @@ function($) {
       })
     }
 
-    // --------------------------------------------------------
-    //
-    //  Render the list
-    //
     ,
     render: function(items) {
       var _this = this

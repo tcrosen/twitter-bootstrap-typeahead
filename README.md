@@ -14,24 +14,40 @@ About
 All the thanks in the world to [@mdo](https://twitter.com/#!/mdo) and [@fat](https://twitter.com/#!/fat) of [@twitter](https://twitter.com/) for the wonderful Bootstrap utility.<br /><br />
 I required more functionality out of the typeahead plugin that was included so I created this simple extension.
 
-Changes
+Changes from the Original
 -------
 
-**matchProp**<br />
-Default: *name*<br />
-Usage: The object property to match against.
+**Methods:**
 
-**sortProp**<br />
-Default: *name*<br />
-Usage: The object property to use when sorting the items.
+All original methods are now overridable:
+
+matcher<br />
+sorter<br />
+highlighter<br />
+select<br />
+render<br />
+
+**New Options:**
 
 **valueProp**<br />
 Default: *id*<br />
-Usage: The object property to return when an item is selected.
+Description: The object value that is returned when an item is selected.
+
+**matchProp**<br />
+Default: *name*<br />
+Description: The object property to match the query against.
+
+**sortProp**<br />
+Default: *name*<br />
+Description: The object property to use when sorting the items.
 
 **itemSelected**<br />
 Default: *function (item, val, text) {}*<br />
-Usage: The callback function that is invoked when an item is chosen.  Takes the element, value as described by *valueProp* and text as described by *textProp* as parameters.
+Description: The callback function that is invoked when an item is chosen.<br />  
+Params: <br />
++ the HTML element that was selected
++ value of the *valueProp* property
++ value of the *textProp* property
 
 Sample Usage
 ------------
