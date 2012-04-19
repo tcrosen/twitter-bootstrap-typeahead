@@ -1,4 +1,4 @@
-typeahead.js
+Typeahead
 ============
 
 An extension of the Twitter Bootstrap Typeahead plugin (as of v2.0.2)<br />
@@ -6,8 +6,8 @@ An extension of the Twitter Bootstrap Typeahead plugin (as of v2.0.2)<br />
 
 Required
 -----------------
-* Twitter Bootstrap 2.0.2
-* jQuery 1.7.1
+* Twitter Bootstrap 2.0.2+
+* jQuery 1.7.1+
 
 About
 -----
