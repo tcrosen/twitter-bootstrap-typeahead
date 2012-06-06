@@ -72,7 +72,7 @@ Sample Usage
 			matchProp: 'Name',
 			sortProp: 'Name',
 			valueProp: 'ID',
-			itemSelected: function(item, val, text) {
+			itemSelected: function(val) {
 				alert('You selected the city ' + text + ' with ID ' + val)
 				console.log(item)
 			}
