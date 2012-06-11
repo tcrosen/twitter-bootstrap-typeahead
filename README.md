@@ -226,7 +226,12 @@ The plugin in its simplest (realistic) form.
 
 Working examples are included in this project.
 
+Why did you change so much from v1.0 of your plugin?
+-----------------
+I found certain things to be redundant, like having separate sort and display properties.  I can't think of a reasonable scenerio where you would be sorting based on something different than what you are displaying.
+
 What the $#&* did you do to the source code?
 -----------------
-I added comments, semi-colons and other formatting that I like to use based on [idiomatic JS](https://github.com/rwldrn/idiomatic.js).
-You should always be [minifying](http://en.wikipedia.org/wiki/Minification_\(programming\)) your JS before production use.
+I added comments, semi-colons and other formatting that I like to use based on [idiomatic JS guidelines](https://github.com/rwldrn/idiomatic.js).
+
+If you are concerned with the bigger file size, you should always be [minifying](http://en.wikipedia.org/wiki/Minification_\(programming\)) your JS before production use.
