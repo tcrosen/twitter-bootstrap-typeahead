@@ -14,7 +14,7 @@
 <body class="container">
     <h1>
         Twitter Bootstrap Typeahead Extension Demo</h1>
-    v1.1<br />
+    v1.2<br />
     Terry Rosen<br />
     <a href="https://github.com/tcrosen/twitter-bootstrap-typeahead" target="_blank">https://github.com/tcrosen/twitter-bootstrap-typeahead</a>
     <hr />
@@ -88,13 +88,27 @@
     });
 </pre>
     </div>
-      <hr />
+    <hr />
     <div class="row">
         <div class="well span4">
             <input id="demo4" type="text" class="span4" placeholder="Search cities..." />
         </div>
 <pre class="prettyprint span7">
-    
+    $('#demo4').typeahead({
+        ajax: '/cities/list'
+    });
+</pre>
+    </div>  
+    <hr />
+    <div class="row">
+        <div class="well span4">
+            <input id="demo5" type="text" class="span4" placeholder="Search cities..." />
+        </div>
+<pre class="prettyprint span7">
+    $('#demo5').typeahead({
+        ajax: { url: '/cities/list', 
+                triggerLength: 1 }
+    });
 </pre>
     </div>  
 </body>

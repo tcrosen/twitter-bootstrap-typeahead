@@ -1,7 +1,7 @@
 Twitter Bootstrap Typeahead Plugin Extension
 ========================
 
-v1.1 (June 2012)<br />
+v1.2<br />
 Terry Rosen [@rerrify](https://twitter.com/#!/rerrify)
 
 An extension of the Twitter Bootstrap Typeahead plugin<br />
@@ -14,7 +14,7 @@ I required more functionality out of the Typeahead plugin so I created this exte
 
 Required
 -----------------
-* Twitter Bootstrap 2.0.4
+* Twitter Bootstrap 2.0.x
 * jQuery 1.7.x
 
 Installation
@@ -129,6 +129,43 @@ Options
 </thead>
     <tr>
         <td>
+            ajax
+        </td>
+        <td>
+            object
+        </td>
+        <td>
+        <pre>{
+    url: null,
+    timeout: 300,
+    method: 'post',
+    triggerLength: 3,
+    loadingClass: null,
+    displayField: null,
+    preDispatch: null,
+    preProcess: null
+}</pre>
+        </td>
+        <td>
+            The object required to use a remote datasource.  <br /><i>See also: ajax as a string (below)</i>
+        </td>            
+    </tr>
+    <tr>
+        <td>
+            ajax
+        </td>
+        <td>
+            string
+        </td>
+        <td>
+            null
+        </td>
+        <td>
+            Optionally, a simple URL may be used instead of the AJAX object. <br />   <i>See also: ajax as an object (above)</i>        
+        </td>            
+    </tr>
+    <tr>
+        <td>
             display
         </td>
 		<td>
@@ -224,9 +261,15 @@ The plugin in its simplest (realistic) form.
 		source: mySource
 	});
 
-Working examples are included in this project.
+Or using a remote data source:
 
-Why did you change so much from v1.0 of your plugin?
+    $('#myElement').typeahead({
+        ajax: '/path/to/mySource'
+    });
+
+Examples demonstrating various options are included in this project under the `/demo` folder
+
+Why did you change so much from v1.0 to v1.1?
 -----------------
 I found certain things to be redundant, like having separate sort and display properties.  I can't think of a reasonable scenerio where you would be sorting based on something different than what you are displaying.
 
@@ -235,3 +278,19 @@ What the $#&* did you do to the source code?
 I added comments, semi-colons and other formatting that I like to use based on [idiomatic JS guidelines](https://github.com/rwldrn/idiomatic.js).
 
 If you are concerned with the bigger file size, you should always be [minifying](http://en.wikipedia.org/wiki/Minification_\(programming\)) your JS before production use.
+
+Change Log
+-----------------
+
+**1.2**
+
+- Added AJAX support
+
+**1.1**
+
+- Major code cleanup
+- Test cases added
+- Documentation improvements
+
+
+

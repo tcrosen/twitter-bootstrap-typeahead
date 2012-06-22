@@ -1,6 +1,6 @@
 function displayResult(item, val, text) {
     console.log(item);
-    $('.alert').show().html('You selected <strong>' + val + '</strong> - <strong>' + text + '</strong>');
+    $('.alert').show().html('You selected <strong>' + val + '</strong>: <strong>' + text + '</strong>');
 }
 
 $(function () {
@@ -56,7 +56,7 @@ $(function () {
         itemSelected: displayResult
     });
 
-
+    // Mock an AJAX request
     $.mockjax({
         url: '/cities/list',
         responseText: [{ id: 1, name: 'Toronto' },
@@ -72,6 +72,12 @@ $(function () {
     });
 
     $('#demo4').typeahead({
-        ajax: '/cities/list'
+        ajax: '/cities/list',        
+        itemSelected: displayResult
+    });
+
+    $('#demo5').typeahead({
+        ajax: { url: '/cities/list', triggerLength: 1 }, 
+        itemSelected: displayResult
     });
 });
