@@ -10,7 +10,12 @@ An extension of the Twitter Bootstrap Typeahead plugin<br />
 About
 -----------------
 All the thanks in the world to [@mdo](https://twitter.com/#!/mdo) and [@fat](https://twitter.com/#!/fat) of [@twitter](https://twitter.com/) for the wonderful Bootstrap utility.<br />
-I required more functionality out of the Typeahead plugin so I created this extension.  
+I required more functionality out of the Typeahead plugin so I created this extension with some additional features:
+
+- A callback function is available for when an item is selected
+- Ability to specify data source properties
+- Ability to use a local or remote (AJAX) data source
+- Most original methods are overridable so you can customize without changing the source code
 
 Required
 -----------------
