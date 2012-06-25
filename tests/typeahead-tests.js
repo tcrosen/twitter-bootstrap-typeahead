@@ -40,8 +40,8 @@
 
     test("should show menu when query entered", function () {
         var $input = $('<input />').typeahead({
-            source: [{ id: 1, name: 'aa' }, { id: 2, name: 'ab' }, { id: 3, name: 'ac'}]
-        }),
+                source: [{ id: 1, name: 'aa' }, { id: 2, name: 'ab' }, { id: 3, name: 'ac'}]
+            }),
             typeahead = $input.data('typeahead');
 
         $input.val('a');
@@ -56,8 +56,8 @@
 
     test("should not explode when invalid display property entered", function () {
         var $input = $('<input />').typeahead({
-            source: [{ id: 1, invalidproperty: 'aa' }, { id: 2, invalidproperty: 'ab' }, { id: 3, invalidproperty: 'ac'}]
-        }),
+                source: [{ id: 1, invalidproperty: 'aa' }, { id: 2, invalidproperty: 'ab' }, { id: 3, invalidproperty: 'ac'}]
+            }),
             typeahead = $input.data('typeahead');
 
         $input.val('a');
@@ -72,8 +72,8 @@
 
     test("should not explode when regex chars are entered", function () {
         var $input = $('<input />').typeahead({
-            source: [{ id: 1, name: 'aa' }, { id: 2, name: 'ab' }, { id: 3, name: 'ac' }, { id: 4, name: 'mdo*' }, { id: 5, name: 'fat+'}]
-        }),
+                source: [{ id: 1, name: 'aa' }, { id: 2, name: 'ab' }, { id: 3, name: 'ac' }, { id: 4, name: 'mdo*' }, { id: 5, name: 'fat+'}]
+            }),
             typeahead = $input.data('typeahead');
 
         $input.val('+');
@@ -90,8 +90,8 @@
         stop();
 
         var $input = $('<input />').typeahead({
-            source: [{ id: 1, name: 'aa' }, { id: 2, name: 'ab' }, { id: 3, name: 'ac'}]
-        }),
+                source: [{ id: 1, name: 'aa' }, { id: 2, name: 'ab' }, { id: 3, name: 'ac'}]
+            }),
             typeahead = $input.data('typeahead');
 
         $input.val('a');
@@ -113,8 +113,8 @@
 
     test("should set next item when down arrow is pressed", function () {
         var $input = $('<input />').typeahead({
-            source: [{ id: 1, name: 'aa' }, { id: 2, name: 'ab' }, { id: 3, name: 'ac'}]
-        }),
+                source: [{ id: 1, name: 'aa' }, { id: 2, name: 'ab' }, { id: 3, name: 'ac'}]
+            }),
             typeahead = $input.data('typeahead');
 
         $input.val('a');
@@ -145,8 +145,8 @@
 
     test("should set input value to selected item", function () {
         var $input = $('<input />').typeahead({
-            source: [{ id: 1, name: 'aa' }, { id: 2, name: 'ab' }, { id: 3, name: 'ac'}]
-        }),
+                source: [{ id: 1, name: 'aa' }, { id: 2, name: 'ab' }, { id: 3, name: 'ac'}]
+            }),
           typeahead = $input.data('typeahead'),
           changed = false;
 
