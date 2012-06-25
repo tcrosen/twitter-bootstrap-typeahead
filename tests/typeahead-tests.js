@@ -1,6 +1,16 @@
 ﻿$(function () {
 
-    module("bootstrap-typeahead");
+    module("bootstrap-typeahead", {
+        setup: function () {
+            $.mockjax({
+                url: '/people/list',
+                responseText: [{ id: 1, name: 'aa' }, { id: 2, name: 'ab' }, { id: 3, name: 'ac'}]
+            });
+        },
+        teardown: function () {
+            $.mockjaxClear();
+        }
+    });
 
     test("should be defined on jquery object", function () {
         ok($(document.body).typeahead, 'alert method is defined');
