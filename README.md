@@ -307,6 +307,7 @@ Change Log
 
 - Some AJAX tests added
 - Added fix for spontaneous AJAX bug reported by users
+- `grepper` and `lookup` methods are now overridable
 
 **1.2**
 
