@@ -320,4 +320,9 @@ Change Log
 - Documentation improvements
 
 
+Road Map
+-----------------
 
+**1.3**
+
+- Add template support
