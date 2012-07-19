@@ -287,6 +287,12 @@ If you are concerned with the bigger file size, you should always be [minifying]
 Change Log
 -----------------
 
+**1.2.1**
+
+- Some AJAX tests added
+- Added fix for spontaneous AJAX bug reported by users
+
+
 **1.2**
 
 - Added AJAX support

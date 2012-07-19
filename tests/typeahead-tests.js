@@ -3,8 +3,8 @@
     module("bootstrap-typeahead", {
         setup: function () {
             $.mockjax({
-                url: '/people/list',
-                responseText: [{ id: 1, name: 'aa' }, { id: 2, name: 'ab' }, { id: 3, name: 'ac'}]
+                url: '/test',
+                responseText: [{ id: 1, name: 'aaa' }, { id: 2, name: 'aab' }, { id: 3, name: 'aac'}, { id: 4, name: 'abc'}, { id: 5, name: 'bbc'}]
             });
         },
         teardown: function () {
@@ -173,4 +173,41 @@
 
         typeahead.$menu.remove();
     });
+
+    test('basic ajax url as source should work', function() {    
+        var $input = $('<input />').typeahead({ ajax: '/test' }),
+            typeahead = $input.data('typeahead');
+
+        stop();  
+  
+        $input.val('aaa');
+        typeahead.lookup();
+    
+        setTimeout(function() {  
+            start();  
+
+            ok(typeahead.$menu.is(":visible"), 'typeahead is visible');
+            equal(typeahead.$menu.find('li').length, 1, 'has 1 items in menu');
+            equal(typeahead.$menu.find('.active').length, 1, 'one item is active');
+            typeahead.$menu.remove();
+        }, 2000);  
+    }); 
+
+    test('ajax object as source should work', function() {    
+        var $input = $('<input />').typeahead({ ajax: { url: '/test', triggerLength: 1 } }),
+            typeahead = $input.data('typeahead');
+
+        stop();  
+  
+        $input.val('a');
+        typeahead.lookup();
+    
+        setTimeout(function() {  
+            start();  
+            ok(typeahead.$menu.is(":visible"), 'typeahead is visible');
+            equal(typeahead.$menu.find('li').length, 4, 'has 4 items in menu');
+            equal(typeahead.$menu.find('.active').length, 1, 'one item is active');
+            typeahead.$menu.remove();
+        }, 2000);  
+    }); 
 });
