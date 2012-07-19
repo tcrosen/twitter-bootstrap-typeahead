@@ -59,6 +59,14 @@ Events
 	</thead>
     <tr>
         <td>
+            grepper
+        </td>
+        <td>
+            Filters relevant results from the source.
+        </td>
+    </tr>
+    <tr>
+        <td>
             highlighter
         </td>
         <td>
@@ -76,6 +84,14 @@ Events
 			<li>val: value of the *val* property</li>
             <li>text: value of the *display* property</li>
 			</ul>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            lookup
+        </td>
+        <td>
+            Determines if source is remote or local and initializes the search.
         </td>
     </tr>
     <tr>
