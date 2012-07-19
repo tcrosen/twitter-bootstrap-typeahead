@@ -1,7 +1,7 @@
 Twitter Bootstrap Typeahead Plugin Extension
 ========================
 
-v1.2<br />
+v1.2.1<br />
 Terry Rosen [@rerrify](https://twitter.com/#!/rerrify)
 
 An extension of the Twitter Bootstrap Typeahead plugin<br />
@@ -291,7 +291,6 @@ Change Log
 
 - Some AJAX tests added
 - Added fix for spontaneous AJAX bug reported by users
-
 
 **1.2**
 
