@@ -1,7 +1,7 @@
 Twitter Bootstrap Typeahead Plugin Extension
 ========================
 
-v1.2.1<br />
+v1.2.2<br />
 Terry Rosen [@rerrify](https://twitter.com/#!/rerrify)
 
 An extension of the Twitter Bootstrap Typeahead plugin<br />
@@ -19,8 +19,8 @@ I required more functionality out of the Typeahead plugin so I created this exte
 
 Required
 -----------------
-* Twitter Bootstrap 2.0.x
-* jQuery 1.7.x
+* Twitter Bootstrap 2.0+
+* jQuery 1.7+
 
 Installation
 -----------------
@@ -302,6 +302,13 @@ If you are concerned with the bigger file size, you should always be [minifying]
 
 Change Log
 -----------------
+
+**1.2.2**
+
+- Added support for jQuery 1.8 & Bootstrap 2.1
+- Removed usage of jQuery.browser [#9385](http://bugs.jquery.com/ticket/9385)
+- Changed jQuery.data() to jQuery._data() in order to make test suite operational [#11718](http://bugs.jquery.com/ticket/11718)
+- Added an undocumented function `eventSupported(eventName)` to verify browser support for `keydown` event.  You may override this function if you prefer to do this check another way.
 
 **1.2.1**
 
