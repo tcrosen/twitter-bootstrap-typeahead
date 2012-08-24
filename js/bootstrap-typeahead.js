@@ -1,37 +1,35 @@
 ﻿//  ----------------------------------------------------------------------------
 //
 //  bootstrap-typeahead.js  
-//  https://github.com/tcrosen/twitter-bootstrap-typeahead
 //
 //  Twitter Bootstrap Typeahead Plugin
-//  v1.2.1
+//  v1.2.2
+//  https://github.com/tcrosen/twitter-bootstrap-typeahead
 //
-//  Description
-//  ----------
-//  Custom implementation of Twitter's Bootstrap Typeahead
-//  http://twitter.github.com/bootstrap/javascript.html#typeahead
 //
 //  Author
 //  ----------
 //  Terry Rosen
-//  http://github.com/tcrosen/
+//  tcrosen@gmail.com | @rerrify | github.com/tcrosen/
 //
-//  Contributions
+//
+//  Description
 //  ----------
-//  With permission, AJAX logic based on Paul Warelis' AJAX Typeahead
-//  https://github.com/pwarelis/Ajax-Typeahead
+//  Custom implementation of Twitter's Bootstrap Typeahead Plugin
+//  http://twitter.github.com/bootstrap/javascript.html#typeahead
+//
 //
 //  Requirements
 //  ----------
-//  jQuery 1.7.x
-//  Twitter Bootstrap 2.0.x
+//  jQuery 1.7+
+//  Twitter Bootstrap 2.0+
 //
 //  ----------------------------------------------------------------------------
 
 !
 function ($) {
 
-    "use strict"
+    "use strict";
 
     //------------------------------------------------------------------
     //
@@ -42,8 +40,9 @@ function ($) {
         this.options = $.extend(true, {}, $.fn.typeahead.defaults, options);
         this.$menu = $(this.options.menu).appendTo('body');
         this.shown = false;
-        
+
         // Method overrides    
+        this.eventSupported = this.options.eventSupported || this.eventSupported;
         this.grepper = this.options.grepper || this.grepper;
         this.highlighter = this.options.highlighter || this.highlighter;
         this.lookup = this.options.lookup || this.lookup;
@@ -51,7 +50,7 @@ function ($) {
         this.render = this.options.render || this.render;
         this.select = this.options.select || this.select;
         this.sorter = this.options.sorter || this.sorter;
-        this.source = this.options.source || this.source;
+        this.source = this.options.source || this.source;        
                 
         if (!this.source.length) {
             var ajax = this.options.ajax;
@@ -67,12 +66,34 @@ function ($) {
             }
         }
 
-        this.listen();
+        this.listen();        
     }
 
     Typeahead.prototype = {
 
         constructor: Typeahead,
+
+        //=============================================================================================================
+        //
+        //  Utils
+        //
+        //=============================================================================================================
+
+        //------------------------------------------------------------------
+        //
+        //  Check if an event is supported by the browser eg. 'keypress'
+        //  * This was included to handle the "exhaustive deprecation" of jQuery.browser in jQuery 1.8
+        //
+        eventSupported: function(eventName) {         
+            var isSupported = (eventName in this.$element);
+
+            if (!isSupported) {
+              this.$element.setAttribute(eventName, 'return;');
+              isSupported = typeof this.$element[eventName] === 'function';
+            }
+
+            return isSupported;
+        },
 
         //=============================================================================================================
         //
@@ -217,9 +238,7 @@ function ($) {
             var that = this,
                 items;
 
-            // Helpful console log for developers who may have accidentally specified an invalid property name
             if (data && data.length && !data[0].hasOwnProperty(that.options.display)) {                
-                console.log('typeahead.lookup(): source object has no property named "' + that.options.display + '"');
                 return null;
             } 
 
@@ -385,8 +404,8 @@ function ($) {
                          .on('keypress', $.proxy(this.keypress, this))
                          .on('keyup', $.proxy(this.keyup, this));
 
-            if ($.browser.webkit || $.browser.msie) {
-                this.$element.on('keydown', $.proxy(this.keypress, this));
+            if (this.eventSupported('keydown')) {
+               this.$element.on('keydown', $.proxy(this.keypress, this));
             }
 
             this.$menu.on('click', $.proxy(this.click, this))
@@ -466,7 +485,7 @@ function ($) {
             e.stopPropagation();
             e.preventDefault();
             setTimeout(function () {
-                if (!that.$menu.is(':hover')) {
+                if (!that.$menu.is(':focus')) {
                   that.hide();
                 }
             }, 150)

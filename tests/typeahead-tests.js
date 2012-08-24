@@ -1,11 +1,21 @@
-﻿$(function () {
-
+﻿$(function () {          
     module("bootstrap-typeahead", {
         setup: function () {
+            this._data = parseFloat($.fn.jquery) === 1.8 ? $._data : $.data;                
+            this._eventSupported = function(eventName) {     
+                var $el = $('body').append('<div />'),
+                    isSupported = (eventName in $el);
+                if (!isSupported) {
+                  $el.setAttribute(eventName, 'return;');
+                  isSupported = typeof $el[eventName] === 'function';
+                }
+                return isSupported;
+            }
+
             $.mockjax({
                 url: '/test',
                 responseText: [{ id: 1, name: 'aaa' }, { id: 2, name: 'aab' }, { id: 3, name: 'aac'}, { id: 4, name: 'abc'}, { id: 5, name: 'bbc'}]
-            });
+            });                
         },
         teardown: function () {
             $.mockjaxClear();
@@ -24,14 +34,14 @@
         var $input = $('<input />');
         $input.typeahead();
 
-        ok($input.data('events').blur, 'has a blur event');
-        ok($input.data('events').keypress, 'has a keypress event');
-        ok($input.data('events').keyup, 'has a keyup event');
+        ok(this._data($input[0], 'events').blur, 'has a blur event');
+        ok(this._data($input[0], 'events').keypress, 'has a keypress event');
+        ok(this._data($input[0], 'events').keyup, 'has a keyup event');
 
-        if ($.browser.webkit || $.browser.msie) {
-            ok($input.data('events').keydown, 'has a keydown event');
+        if (this._eventSupported('keydown')) {
+            ok(this._data($input[0], 'events').keydown, 'has a keydown event');
         } else {
-            ok($input.data('events').keydown, 'does not have a keydown event');
+            ok(this._data($input[0], 'events').keydown, 'does not have a keydown event');
         }
     });
 
@@ -44,8 +54,8 @@
         var $input = $('<input />'),
             $menu = $input.typeahead().data('typeahead').$menu;
 
-        ok($menu.data('events').mouseover, 'has a mouseover(pseudo: mouseenter)');
-        ok($menu.data('events').click, 'has a click');
+        ok($._data($menu[0], 'events').mouseover, 'has a mouseover(pseudo: mouseenter)');
+        ok($._data($menu[0], 'events').click, 'has a click');
     });
 
     test("should show menu when query entered", function () {
