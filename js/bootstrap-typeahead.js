@@ -162,23 +162,22 @@ function ($) {
         //  Perform a lookup in the AJAX results
         //
         ajaxLookup: function (data) { 
-            var that = this, 
-                items;
+            var items;
             
-            that.ajaxToggleLoadClass(false);
+            this.ajaxToggleLoadClass(false);
 
-            if (!that.ajax.xhr) return;
+            if (!this.ajax.xhr) return;
             
-            if (that.ajax.preProcess) {
-                data = that.ajax.preProcess(data);
+            if (this.ajax.preProcess) {
+                data = this.ajax.preProcess(data);
             }
 
             // Save for selection retreival
-            that.ajax.data = data;
+            this.ajax.data = data;
 
             items = this.grepper(this.ajax.data);
     
-            if (!items.length) {
+            if (!items || !items.length) {
                 return this.shown ? this.hide() : this;
             }
 
