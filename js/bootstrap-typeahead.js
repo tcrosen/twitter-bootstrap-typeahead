@@ -37,7 +37,6 @@ function ($) {
         this.options = $.extend(true, {}, $.fn.typeahead.defaults, options);
         this.$menu = $(this.options.menu).appendTo('body');
         this.shown = false;
-
         this.keyCodes = {
 					DOWN: 40,
           ENTER: 13 || 108,
@@ -81,135 +80,50 @@ function ($) {
             return isSupported;
         },
 
-        ajaxer: function () {
-            var that = this,
-                query = that.$element.val();
-
-            if (query === that.query) {
-                return that;
-            }
-
-            // Query changed
-            that.query = query;
-
-            // Cancel last timer if set
-            if (that.ajax.timerId) {
-                clearTimeout(that.ajax.timerId);
-                that.ajax.timerId = null;
-            }
-
-            if (!query || query.length < that.ajax.triggerLength) {
-                // Cancel the ajax callback if in progress
-                if (that.ajax.xhr) {
-                    that.ajax.xhr.abort();
-                    that.ajax.xhr = null;
-                    that.ajaxToggleLoadClass(false);
-                }
-
-                return that.shown ? that.hide() : that;
-            }
-
-            // Query is good to send, set a timer
-            that.ajax.timerId = setTimeout(function() {
-                $.proxy(that.ajaxExecute(query), that)
-            }, that.ajax.timeout);
-
-            return that;
-        },
-
-        ajaxExecute: function(query) {
-            this.ajaxToggleLoadClass(true);
-
-            // Cancel last call if already in progress
-            if (this.ajax.xhr) this.ajax.xhr.abort();
-
-            var params = this.ajax.preDispatch ? this.ajax.preDispatch(query) : { query : query };
-
-            this.ajax.xhr = $.ajax({
-            	url: this.ajax.url,
-            	data: params,
-            	success: $.proxy(this.ajaxLookup, this)
-            });
-
-            this.ajax.timerId = null;
-        },
-
-        ajaxLookup: function (data) {
-            var items;
-
-            this.ajaxToggleLoadClass(false);
-
-            if (!this.ajax.xhr) return;
-
-            if (this.ajax.preProcess) {
-                data = this.ajax.preProcess(data);
-            }
-
-            // Save for selection retreival
-            this.ajax.data = data;
-
-            items = this.grepper(this.ajax.data);
-
-            if (!items || !items.length) {
-                return this.shown ? this.hide() : this;
-            }
-
-            this.ajax.xhr = null;
-
-            return this.render(items.slice(0, this.options.items)).show();
-        },
-
-        ajaxToggleLoadClass: function (enable) {
-            if (!this.ajax.loadingClass) return;
-            this.$element.toggleClass(this.ajax.loadingClass, enable);
-        },
-
         lookup: function (event) {
             var that = this,
                 items;
 
+            this.query = this.$element.val();
+            if (!this.query) {
+              return this.shown ? this.hide() : this;
+            }
+
             if (this.source.url) {
+	            // Cancel last call if already in progress
+	            if (this.xhr) this.xhr.abort();
 
+	            var ajax = $.extend({}, this.source, {
+	            	data: { query: that.query },
+	            	success: $.proxy(that.filter, that)
+	            });
+
+	            this.xhr = $.ajax(ajax);
             } else {
-
-            }
-            if (that.ajax) {
-                that.ajaxer();
-            }
-            else {
-                that.query = that.$element.val();
-
-                if (!that.query) {
-                    return that.shown ? that.hide() : that;
-                }
-
-                items = that.grepper(that.source);
-
-                if (!items || !items.length) {
-                    return that.shown ? that.hide() : that;
-                }
-
-                return that.render(items.slice(0, that.options.items)).show();
+              items = that.filter(that.source);
+              this.render(items).show();
             }
         },
 
-        grepper: function(data) {
+        filter: function(data) {
             var that = this,
                 items;
 
-            if (data && data.length && !data[0].hasOwnProperty(that.options.display)) {
-                return null;
-            }
-
             items = $.grep(data, function (item) {
-                return that.matcher(item[that.options.display], item);
+                return ~item[that.options.display].toLowerCase().indexOf(that.query.toLowerCase());
             });
 
-            return this.sorter(items);
+        		if (!items || !items.length) {
+              return this.shown ? this.hide() : this;
+            } else {
+            	items.slice(0, this.options.maxResults);
+						}
+
+			      return this.render(this.sorter(items)).show();
         },
 
         matcher: function (item) {
-            return ~item.toLowerCase().indexOf(this.query.toLowerCase());
+            return
         },
 
         sorter: function (items) {
@@ -264,8 +178,19 @@ function ($) {
             var that = this;
 
             items = $(items).map(function (i, item) {
-                i = $(that.options.item).attr('data-value', item[that.options.val]);
-                i.find('a').html(that.highlighter(item[that.options.display], item));
+            		if (that.options.tmpl) {
+            			i = $(that.options.tmpl(item));
+            		} else {
+	                i = $(that.options.item);
+	              }
+
+	              if (typeof that.options.val === 'string') {
+	              	i.attr('data-value', item[that.options.val]);
+	              } else {
+	              	i.attr('data-value', JSON.stringify($.extend({}, that.options.val, item)))
+	              }
+
+	              i.find('a').html(that.highlighter(item[that.options.display], item));
                 return i[0];
             });
 
@@ -277,7 +202,7 @@ function ($) {
         select: function () {
             var $selectedItem = this.$menu.find('.active');
             this.$element.val($selectedItem.text()).change();
-            this.options.itemSelected($selectedItem, $selectedItem.attr('data-value'), $selectedItem.text());
+            this.options.itemSelected(JSON.parse($selectedItem.attr('data-value')));
             return this.hide();
         },
 
@@ -406,7 +331,7 @@ function ($) {
     //  Defaults
     $.fn.typeahead.defaults = {
         source: [],
-        items: 8,
+        maxResults: 8,
         menu: '<ul class="typeahead dropdown-menu"></ul>',
         item: '<li><a href="#"></a></li>',
         display: 'name',
@@ -415,7 +340,6 @@ function ($) {
     }
 
     $.fn.typeahead.Constructor = Typeahead;
-
 
     //  Data API (no-JS implementation)
     $(function () {
