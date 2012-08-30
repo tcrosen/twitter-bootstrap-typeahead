@@ -47,7 +47,7 @@ Dependancies
 -----------------
 - [Twitter Bootstrap](https://github.com/twitter/bootstrap) 2.0+
 - [jQuery](http://docs.jquery.com/Downloading_jQuery) 1.7+
-- [json2.js](https://github.com/douglascrockford/JSON-js) *Only required if using templating with older browsers*
+- [json2.js](https://github.com/douglascrockford/JSON-js) *Only required if using complex object values with older browsers - see **val** below*
 
 Installation
 -----------------
@@ -72,7 +72,7 @@ Installation
 About
 -----------------
 All the thanks in the world to [@mdo](https://twitter.com/#!/mdo) and [@fat](https://twitter.com/#!/fat) of [@twitter](https://twitter.com/) for the wonderful Bootstrap utility.<br />
-I required more functionality out of the Typeahead plugin so I created this extension with some additional features:
+I required more functionality out of the Typeahead plugin so I created this extension with additional features.
 
 Events
 -----------------
@@ -90,14 +90,6 @@ Events
 	</thead>
     <tr>
         <td>
-            grepper
-        </td>
-        <td>
-            Filters relevant results from the source.
-        </td>
-    </tr>
-    <tr>
-        <td>
             highlighter
         </td>
         <td>
@@ -110,43 +102,6 @@ Events
         </td>
         <td>
             The callback function that is invoked when an item is chosen.
-            <ul>
-			<li>item: the HTML element that was selected</li>
-			<li>val: value of the *val* property</li>
-            <li>text: value of the *display* property</li>
-			</ul>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            lookup
-        </td>
-        <td>
-            Determines if source is remote or local and initializes the search.
-        </td>
-    </tr>
-    <tr>
-        <td>
-            matcher
-        </td>
-        <td>
-            Looks for a match between the query and a source item.
-        </td>
-    </tr>
-    <tr>
-        <td>
-            render
-        </td>
-        <td>
-            Renders the list of results.
-        </td>
-    </tr>
-    <tr>
-        <td>
-            select
-        </td>
-        <td>
-            Selects an item from the results list.
         </td>
     </tr>
     <tr>
@@ -181,39 +136,17 @@ Options
 </thead>
     <tr>
         <td>
-            ajax
+            source
         </td>
         <td>
-            object
+            array, object, string
         </td>
         <td>
-        <pre>{
-    url: null,
-    timeout: 300,
-    method: 'post',
-    triggerLength: 3,
-    loadingClass: null,
-    displayField: null,
-    preDispatch: null,
-    preProcess: null
-}</pre>
+        <pre>[]
+</pre>
         </td>
         <td>
-            The object required to use a remote datasource.  <br /><i>See also: ajax as a string (below)</i>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            ajax
-        </td>
-        <td>
-            string
-        </td>
-        <td>
-            null
-        </td>
-        <td>
-            Optionally, a simple URL may be used instead of the AJAX object. <br />   <i>See also: ajax as an object (above)</i>
+            Can use an array for a local data source, a URL for a remote data source or a full jQuery AJAX object
         </td>
     </tr>
     <tr>
@@ -221,13 +154,13 @@ Options
             display
         </td>
 		<td>
-            string
+            string, object
         </td>
 		<td>
             'name'
         </td>
         <td>
-            The object property to match the query against and highlight in the results.
+            The property of the datasource to display
         </td>
     </tr>
     <tr>
@@ -235,27 +168,42 @@ Options
             item
         </td>
 		<td>
-            string
+            string, function
         </td>
         <td>
             '&lt;li&gt;&lt;a href=&quot;#&quot;&gt;&lt;/a&gt;&lt;/li&gt;'
         </td>
         <td>
-			The HTML rendering for a result item.
+			The HTML rendering for a result item or template function.
         </td>
     </tr>
     <tr>
         <td>
-            items
+            maxResults
         </td>
 		<td>
-            integer
+            int
         </td>
         <td>
             8
         </td>
         <td>
 			The maximum number of items to show in the results.
+        </td>
+    </tr>
+    <tr>
+    	<tr>
+        <td>
+            minLength
+        </td>
+		<td>
+            int
+        </td>
+        <td>
+            1
+        </td>
+        <td>
+			The minimum number of characters required before doing a search
         </td>
     </tr>
     <tr>
@@ -274,65 +222,26 @@ Options
     </tr>
     <tr>
         <td>
-            source
-        </td>
-		<td>
-            object
-        </td>
-        <td>
-           []
-        </td>
-        <td>
-			The source to search against.
-        </td>
-    </tr>
-    <tr>
-        <td>
             val
         </td>
 		<td>
-            string
+            string, object
         </td>
 		<td>
             'id'
         </td>
         <td>
-            The object property that is returned when an item is selected.
+            The property name or JSON object to be returned.  *Using a JSON object may require [json2.js](https://github.com/douglascrockford/JSON-js) in older browsers*
         </td>
     </tr>
 </table>
 
 
-Basic Usage
------------------
-The plugin in its simplest (realistic) form.
-
-	var mySource = [{ id: 1, name: 'Terry'}, { id: 2, name: 'Mark'}, { id: 3, name: 'Jacob'}];
-
-	$('#myElement').typeahead({
-		source: mySource
-	});
-
-Or using a remote data source:
-
-    $('#myElement').typeahead({
-        ajax: '/path/to/mySource'
-    });
-
-Examples demonstrating various options are included in this project under the `/demo` folder
-
-Why did you change so much from v1.0 to v1.1?
------------------
-I found certain things to be redundant, like having separate sort and display properties.  I can't think of a reasonable scenerio where you would be sorting based on something different than what you are displaying.
-
-What the $#&* did you do to the source code?
------------------
-I added comments, semi-colons and other formatting that I like to use based on [idiomatic JS guidelines](https://github.com/rwldrn/idiomatic.js).
-
-If you are concerned with the bigger file size, you should always be [minifying](http://en.wikipedia.org/wiki/Minification_\(programming\)) your JS before production use.
-
 Change Log
 -----------------
+
+**2.0.0**
+-
 
 **1.2.2**
 
