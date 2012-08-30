@@ -7,8 +7,10 @@ Twitter Bootstrap Typeahead Plugin Extension
 
 - Item templates
 - Simpler & more powerful Ajax interface
-- Grouping
+- Item grouping
 - Complex objects as return values
+- jQuery 1.8 & Bootstrap 2.1 compatible
+- Better documentation & demos
 - ... lots more!
 
 Check out the development [here](https://github.com/tcrosen/twitter-bootstrap-typeahead/tree/2.0)
