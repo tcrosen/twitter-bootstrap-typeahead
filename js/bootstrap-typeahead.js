@@ -10,7 +10,7 @@
 //  Author
 //  ----------
 //  Terry Rosen
-//  tcrosen@gmail.com | @rerrify | github.com/tcrosen/
+//  tcrosen@gmail.com | @rerrify
 //
 //
 //  Description
@@ -53,7 +53,8 @@ function ($) {
 	        this.$element = $(element);
 	        this.options = $.extend(true, {}, $.fn.typeahead.defaults, options);
 	        this.$menu = $(this.options.menu).appendTo('body');
-	        this.display = this.options.display ? this.options.display.toLowerCase() : this.display;
+	        this.sorter = this.options.sorter || this.sorter;
+	        this.highlighter = this.options.highlighter || this.highlighter;
 	        this.shown = false;
 	        this.initSource();
 	        this.listen();
