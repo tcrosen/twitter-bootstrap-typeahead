@@ -1,6 +1,5 @@
-function displayResult(item, val, text) {
+function displayResult(item) {
     console.log(item);
-    $('.alert').show().html('You selected <strong>' + val + '</strong>: <strong>' + text + '</strong>');
 }
 
 $(function () {
@@ -72,20 +71,16 @@ $(function () {
     });
 
     $('#demo4').typeahead({
-        ajax: '/cities/list',
+        source: '/cities/list',
         itemSelected: displayResult
     });
 
     $('#demo5').typeahead({
         source: {
         	url: '/cities/list',
-        	type: 'post',
-        	triggerLength: 1
+        	type: 'post'
         },
-        tmpl: _.template('<li><a href="#"><%= id %><%= name %></a></li>'),
-        val: {},
-        itemSelected: function(item){
-        	console.log(item)
-        }
+        tmpl: _.template('<li id="city-<%= id %>"><a href="#"><%= name %></a></li>'),
+        itemSelected: displayResult
     });
 });

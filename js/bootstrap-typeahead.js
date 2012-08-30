@@ -34,6 +34,7 @@ function ($) {
     var _defaults = {
 	    	source: [],
         maxResults: 8,
+        minLength: 1,
         menu: '<ul class="typeahead dropdown-menu"></ul>',
         item: '<li><a href="#"></a></li>',
         display: 'name',
@@ -95,7 +96,7 @@ function ($) {
               items;
 
           this.query = this.$element.val();
-          if (!this.query) {
+          if (!this.query || this.query.length < this.options.minLength) {
             return this.shown ? this.hide() : this;
           }
 
@@ -110,8 +111,7 @@ function ($) {
           	);
 
           } else {
-            items = that.filter(that.source);
-            this.render(items).show();
+            items = $.proxy(that.filter(that.source), that);
           }
         },
 

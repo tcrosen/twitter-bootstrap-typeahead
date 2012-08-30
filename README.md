@@ -1,47 +1,78 @@
-Twitter Bootstrap Typeahead Plugin Extension
+Twitter Bootstrap Typeahead Extension
 ========================
 
-v1.2.2<br />
+v2.0.0<br />
 Terry Rosen [@rerrify](https://twitter.com/#!/rerrify)
 
 An extension of the Twitter Bootstrap Typeahead plugin<br />
 <http://twitter.github.com/bootstrap/javascript.html#typeahead>
 
-About
------------------
-All the thanks in the world to [@mdo](https://twitter.com/#!/mdo) and [@fat](https://twitter.com/#!/fat) of [@twitter](https://twitter.com/) for the wonderful Bootstrap utility.<br />
-I required more functionality out of the Typeahead plugin so I created this extension with some additional features:
+**jQuery 1.8 & Bootstrap 2.1 Compatible**
 
-- A callback function is available for when an item is selected
-- Ability to specify data source properties
-- Ability to use a local or remote (AJAX) data source
-- Most original methods are overridable so you can customize without changing the source code
-
-Required
+Features
 -----------------
-* Twitter Bootstrap 2.0+
-* jQuery 1.7+
+
+- Complex data sources
+
+		$('#my-element').typeahead({
+		  source: [{ id: 1, name: 'Toronto' }, { id: 2, name: 'Montreal' }, { id: 3, name: 'New York' }]
+		});
+
+- Ajax data sources
+
+		$('#my-element').typeahead({
+		  source: {
+		  	url: '/cities/list',
+		  	type: 'post'
+		  }
+		});
+
+- Callback when item is selected
+
+		$('#my-element').typeahead({
+		  source: [{ id: 1, name: 'Toronto' }, { id: 2, name: 'Montreal' }, { id: 3, name: 'New York' }],
+		  itemSelected: function (item) {
+		  	alert('You selected city ID ' + item)
+		  }
+		});
+
+- Item templates (example using [Underscore.js](http://underscorejs.org/))
+
+		$('#my-element').typeahead({
+		  source: [{ id: 1, name: 'Toronto' }, { id: 2, name: 'Montreal' }, { id: 3, name: 'New York' }],
+		  tmpl: _.template('<li id="<%= id %>"><a href="#"><%= name %></a></li>')
+		});
+
+Dependancies
+-----------------
+- [Twitter Bootstrap](https://github.com/twitter/bootstrap) 2.0+
+- [jQuery](http://docs.jquery.com/Downloading_jQuery) 1.7+
+- [json2.js](https://github.com/douglascrockford/JSON-js) *Only required if using templating with older browsers*
 
 Installation
 -----------------
-1) Download [Bootstrap](https://github.com/twitter/bootstrap) & [jQuery](http://docs.jquery.com/Downloading_jQuery)
 
-2) Download this plugin.
+1) Download the plugin:
 
 - [ZIP](https://github.com/tcrosen/twitter-bootstrap-typeahead/zipball/master)
-- [Clone in Windows](github-windows://openRepo/https://github.com/tcrosen/twitter-bootstrap-typeahead) 
+- [Clone in Windows](github-windows://openRepo/https://github.com/tcrosen/twitter-bootstrap-typeahead)
+- [Clone in Mac](github-mac://openRepo/https://github.com/tcrosen/twitter-bootstrap-typeahead)
 - `git clone git://github.com/tcrosen/twitter-bootstrap-typeahead.git`
 
-3) Include files in your HTML. The minimum required for this plugin are:
+2) Include files in your HTML. The minimum required are:
 
     <link href="/path/to/bootstrap.css" rel="stylesheet">
     <script src="/path/to/jquery.js" type="text/javascript"></script>
     <script src="/path/to/bootstrap-typeahead.js" type="text/javascript"></script>
 
-4) Execute the plugin:
+3) Execute:
 
     $(myElement).typeahead(options);
 
+About
+-----------------
+All the thanks in the world to [@mdo](https://twitter.com/#!/mdo) and [@fat](https://twitter.com/#!/fat) of [@twitter](https://twitter.com/) for the wonderful Bootstrap utility.<br />
+I required more functionality out of the Typeahead plugin so I created this extension with some additional features:
 
 Events
 -----------------
@@ -127,7 +158,7 @@ Events
         </td>
     </tr>
 </table>
-		
+
 Options
 -----------------
 
@@ -169,7 +200,7 @@ Options
         </td>
         <td>
             The object required to use a remote datasource.  <br /><i>See also: ajax as a string (below)</i>
-        </td>            
+        </td>
     </tr>
     <tr>
         <td>
@@ -182,8 +213,8 @@ Options
             null
         </td>
         <td>
-            Optionally, a simple URL may be used instead of the AJAX object. <br />   <i>See also: ajax as an object (above)</i>        
-        </td>            
+            Optionally, a simple URL may be used instead of the AJAX object. <br />   <i>See also: ajax as an object (above)</i>
+        </td>
     </tr>
     <tr>
         <td>
@@ -197,7 +228,7 @@ Options
         </td>
         <td>
             The object property to match the query against and highlight in the results.
-        </td>            
+        </td>
     </tr>
     <tr>
         <td>
@@ -267,7 +298,7 @@ Options
         </td>
         <td>
             The object property that is returned when an item is selected.
-        </td>        
+        </td>
     </tr>
 </table>
 
