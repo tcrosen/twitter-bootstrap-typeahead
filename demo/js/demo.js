@@ -4,81 +4,51 @@ function displayResult(item) {
 
 $(function () {
 
-	var localSrc = [{ id: 1, name: 'Toronto' },
-				    { id: 2, name: 'Montreal' },
-				    { id: 3, name: 'New York' },
-				    { id: 4, name: 'Buffalo' },
-				    { id: 5, name: 'Boston' },
-				    { id: 6, name: 'Columbus' },
-				    { id: 7, name: 'Dallas' },
-				    { id: 8, name: 'Vancouver' },
-				    { id: 9, name: 'Seattle' },
-				    { id: 10, name: 'Los Angeles' }];
+	$('#tabs a').click(function (e) {
+	  e.preventDefault();
+	  $(this).tab('show');
+	});
 
-    $('#demo1').typeahead({
-        source: localSrc,
-        itemSelected: displayResult
-    });
-
-    $('#demo2').typeahead({
-        source: [
-		    { ID: 1, Name: 'Toronto' },
-		    { ID: 2, Name: 'Montreal' },
-		    { ID: 3, Name: 'New York' },
-		    { ID: 4, Name: 'Buffalo' },
-		    { ID: 5, Name: 'Boston' },
-		    { ID: 6, Name: 'Columbus' },
-		    { ID: 7, Name: 'Dallas' },
-		    { ID: 8, Name: 'Vancouver' },
-		    { ID: 9, Name: 'Seattle' },
-		    { ID: 10, Name: 'Los Angeles' }
-	    ],
-        display: 'Name',
-        val: 'ID',
-        itemSelected: displayResult
-    });
-
-    $('#demo3').typeahead({
-        source: [
-		    { id: 1, full_name: 'Toronto', first_two_letters: 'To' },
-		    { id: 2, full_name: 'Montreal', first_two_letters: 'Mo' },
-		    { id: 3, full_name: 'New York', first_two_letters: 'Ne' },
-		    { id: 4, full_name: 'Buffalo', first_two_letters: 'Bu' },
-		    { id: 5, full_name: 'Boston', first_two_letters: 'Bo' },
-		    { id: 6, full_name: 'Columbus', first_two_letters: 'Co' },
-		    { id: 7, full_name: 'Dallas', first_two_letters: 'Da' },
-		    { id: 8, full_name: 'Vancouver', first_two_letters: 'Va' },
-		    { id: 9, full_name: 'Seattle', first_two_letters: 'Se' },
-		    { id: 10, full_name: 'Los Angeles', first_two_letters: 'Lo' }
-	    ],
-        display: 'full_name',
-        itemSelected: displayResult
-    });
+	var src = [{ id: 1, name: 'Toronto', state: 'ON', country: 'Canada', key: 12345 },
+				    { id: 2, name: 'Montreal', state: 'QC', country: 'Canada', key: 23456 },
+				    { id: 3, name: 'New York', state: 'NY', country: 'USA', key: 34567 },
+				    { id: 4, name: 'Buffalo', state: 'NY', country: 'USA', key: 45678 },
+				    { id: 5, name: 'Boston', state: 'MA', country: 'USA', key: 56789 },
+				    { id: 6, name: 'Columbus', state: 'OH', country: 'USA', key: 67890 },
+				    { id: 7, name: 'Dallas', state: 'TX', country: 'USA', key: 78901 },
+				    { id: 8, name: 'Vancouver', state: 'BC', country: 'Canada', key: 89102 },
+				    { id: 9, name: 'Seattle', state: 'WA', country: 'USA', key: 90123 },
+				    { id: 10, name: 'Los Angeles', state: 'CA', country: 'USA', key: 11234 }];
 
     // Mock an AJAX request
     $.mockjax({
         url: '/cities/list',
-        responseText: [{ id: 1, name: 'Toronto' },
-				    { id: 2, name: 'Montreal' },
-				    { id: 3, name: 'New York' },
-				    { id: 4, name: 'Buffalo' },
-				    { id: 5, name: 'Boston' },
-				    { id: 6, name: 'Columbus' },
-				    { id: 7, name: 'Dallas' },
-				    { id: 8, name: 'Vancouver' },
-				    { id: 9, name: 'Seattle' },
-				    { id: 10, name: 'Los Angeles' }]
+        responseText: src
     });
 
-    $('#demo4').typeahead({
+    $('#basic-usage input').typeahead({
+        source: src
+    });
+
+    $('#basic-customisation input').typeahead({
+        source: src,
+        display: 'name',
+        val: 'key',
+        maxResults: 4
+    });
+
+    $('#demo3 input').typeahead({
         source: '/cities/list',
         itemSelected: displayResult
     });
 
-    $('#demo5').typeahead({
+    $('#demo4 input').typeahead({
         source: {
         	url: '/cities/list',
-        	type: 'post'
+        	type: 'post',
+        	beforeSend: function(){
+
+        	}
         },
         tmpl: _.template('<li id="city-<%= id %>"><a href="#"><%= name %></a></li>'),
         itemSelected: displayResult

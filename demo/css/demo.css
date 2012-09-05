@@ -1,12 +1,12 @@
-﻿body
-{
-    padding-top: 50px;
+﻿body {
+    padding-top: 60px;
 }
-.alert
-{
+
+.alert, .progress {
     display: none;
 }
-h1
-{
-    margin-bottom: 10px;
+
+.bird {
+	width: 20px;
+	margin-left: -3px;
 }

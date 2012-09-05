@@ -1,10 +1,10 @@
-Twitter Bootstrap Typeahead Extension
+Bootstrap Typeahead+
 ========================
 
 v2.0.0<br />
 Terry Rosen [@rerrify](https://twitter.com/#!/rerrify)
 
-An extension of the Twitter Bootstrap Typeahead plugin<br />
+The Twitter Bootstrap Typeahead plugin + more awesomeness!<br />
 <http://twitter.github.com/bootstrap/javascript.html#typeahead>
 
 **jQuery 1.8 & Bootstrap 2.1 Compatible**
