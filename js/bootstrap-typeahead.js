@@ -126,7 +126,7 @@ function ($) {
       		if (!items || !items.length) {
             return this.shown ? this.hide() : this;
           } else {
-          	items.slice(0, this.options.maxResults);
+          	items = items.slice(0, this.options.maxResults);
 					}
 
 		      return this.render(this.sorter(items)).show();
