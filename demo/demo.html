@@ -26,10 +26,9 @@
         <div class="nav-collapse collapse">
           <ul class="nav">
             <li class="active"><a href="#">Demos</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="https://github.com/tcrosen/twitter-bootstrap-typeahead" target="_blank">Github</a></li>
+            <li><a href="https://github.com/tcrosen/twitter-bootstrap-typeahead" target="_blank">Source &amp; Docs</a></li>
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Contact <b class="caret"></b></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Author <b class="caret"></b></a>
               <ul class="dropdown-menu">
                 <li><a href="https://twitter.com/rerrify"><img src="img/bird.png" class="bird" />@rerrify</a></li>
                 <li><a href="mailto:tcrosen@gmail.com"><i class="icon-envelope"></i> tcrosen@gmail.com</a></li>
@@ -46,13 +45,15 @@
   <div class="container">
     <ul class="nav nav-pills" id="tabs">
 		  <li class="active"><a href="#basic-usage">Basic Usage</a></li>
-		  <li><a href="#basic-customisation">Basic Customisation</a></li>
-		  <li><a href="#demo3">Ajax</a></li>
-		  <li><a href="#demo4">Ajax with Template</a></li>
+		  <li><a href="#some-customisation">Some Customisation</a></li>
+		  <li><a href="#basic-ajax">Basic AJAX</a></li>
+		  <li><a href="#complex-ajax">Complex AJAX</a></li>
+		  <li><a href="#templates">Templates</a></li>
 		</ul>
 		<div class="tab-content">
 		 	<div class="alert alert-block alert-success">
     	</div>
+      <!-- Basic Usage -->
 		  <div class="tab-pane active" id="basic-usage">
 		  	<h3>Features</h3>
 		  	<ul>
@@ -65,7 +66,8 @@
 				<h3>Try it!</h3>
 			  <input type="text" class="span4" placeholder="Search..." />
 		  </div>
-		  <div class="tab-pane" id="basic-customisation">
+      <!-- Some customisation -->
+		  <div class="tab-pane" id="some-customisation">
 		  	<h3>Features</h3>
 		  	<ul>
 		  		<li>Local data source</li>
@@ -73,7 +75,7 @@
 		  		<li>Limit results to 4</li>
 		  	</ul>
 		  	<h3>Code</h3>
-<pre>$('#basic-customisation').typeahead({
+<pre>$('#some-customisation').typeahead({
   source: src,
   val: 'key',
   maxResults: 4
@@ -81,16 +83,65 @@
 				<h3>Try it!</h3>
 		  	<input type="text" class="span4" placeholder="Search..." />
 		  </div>
-		  <div class="tab-pane" id="demo3">
+      <!-- Basic AJAX -->
+		  <div class="tab-pane" id="basic-ajax">
+		  	<h3>Features</h3>
+		  	<ul>
+		  		<li>AJAX data source (as simple URL string)</li>
+		  	</ul>
+		  	<h3>Code</h3>
+<pre>$('#basic-ajax input').typeahead({
+  source: '/cities/list'
+});</pre>
+				<h3>Try it!</h3>
 		  	<input type="text" class="span4" placeholder="Search..." />
+        <p><span class="label label-info">Heads up!</span> These AJAX demos use a 2 second simulated latency delay.</p>
 		  </div>
-		  <div class="tab-pane" id="demo4">
-		  	<div class="progress progress-striped active">
-				  <div class="bar" style="width: 100%;"></div>
-				</div>
+      <!-- Complex AJAX -->
+		  <div class="tab-pane" id="complex-ajax">
+		  	<h3>Features</h3>
+		  	<ul>
+		  		<li>AJAX data source (extends <code>jQuery.ajax()</code>)</li>
+		  	</ul>
+		  	<h3>Code</h3>
+<pre>$('#complex-ajax input').typeahead({
+  source: {
+    url: '/cities/list',
+    type: 'post',
+    beforeSend: function () {
+    	$('.progress').show();
+    },
+    complete: function () {
+    	$('.progress').hide();
+    }
+  }
+});</pre>
+				<h3>Try it!</h3>
+        <div class="progress progress-striped active">
+          <div class="bar" style="width: 100%;"></div>
+        </div>
 		  	<input type="text" class="span4" placeholder="Search..." />
-		  </div>
+        <p><span class="label label-info">Heads up!</span> These AJAX demos use a 2 second simulated latency delay.</p>
 		</div>
+    <!-- Templates -->
+    <div class="tab-pane" id="templates">
+        <h3>Features</h3>
+        <ul>
+          <li><a href="http://underscorejs.org/">Underscore.js</a> template to display items</li>
+        </ul>
+        <h3>Code</h3>
+<pre>$('#templates input').typeahead({
+  source: src,
+  tmpl: _.template('&lt;li id="city-&lt;%= id %&gt;"&gt;&lt;a href="#"&gt;&lt;%= name %&gt;&lt;/a&gt;&lt;/li&gt;')
+});</pre>
+        <h3>Try it!</h3>
+        <input type="text" class="span4" placeholder="Search..." />
+    </div>
 	</div>
+  <footer><hr />
+    <p><a href="https://twitter.com/share" class="twitter-share-button" data-url="https://github.com/tcrosen/twitter-bootstrap-typeahead" data-text="I'm using #Bootstrap Typeahead+ and love it!" data-via="rerrify" data-size="large">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script></p>
+<p>Created with <i class="icon-heart"></i> in Toronto by <a href="mailto:tcrosen@gmail.com">Terry Rosen</a> | <a href="https://twitter.com/rerrify">@rerrify</a></p>
+  </footer>
 </body>
 </html>

@@ -22,35 +22,41 @@ $(function () {
 
     // Mock an AJAX request
     $.mockjax({
-        url: '/cities/list',
-        responseText: src
+      url: '/cities/list',
+      responseTime: 2000,
+      responseText: src
     });
 
     $('#basic-usage input').typeahead({
-        source: src
+      source: src
     });
 
-    $('#basic-customisation input').typeahead({
-        source: src,
-        display: 'name',
-        val: 'key',
-        maxResults: 4
+    $('#some-customisation input').typeahead({
+      source: src,
+      display: 'name',
+      val: 'key',
+      maxResults: 4
     });
 
-    $('#demo3 input').typeahead({
-        source: '/cities/list',
-        itemSelected: displayResult
+    $('#basic-ajax input').typeahead({
+      source: '/cities/list'
     });
 
-    $('#demo4 input').typeahead({
-        source: {
-        	url: '/cities/list',
-        	type: 'post',
-        	beforeSend: function(){
+    $('#complex-ajax input').typeahead({
+      source: {
+      	url: '/cities/list',
+      	type: 'post',
+      	beforeSend: function () {
+      		$('.progress').show();
+      	},
+      	complete: function () {
+      		$('.progress').hide();
+      	}
+      }
+    });
 
-        	}
-        },
-        tmpl: _.template('<li id="city-<%= id %>"><a href="#"><%= name %></a></li>'),
-        itemSelected: displayResult
+    $('#templates input').typeahead({
+      source: src,
+      tmpl: _.template('<li id="city-<%= id %>"><a href="#"><%= name %></a></li>')
     });
 });

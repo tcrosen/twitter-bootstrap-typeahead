@@ -55,7 +55,7 @@ function ($) {
 	            if (this.options.source instanceof Array) {
 	          		this.source = this.options.source;
 		          } else {
-		          	this.source = $.extend({}, $.ajaxSettings, this.options.source);
+		          	this.source = $.extend(true, {}, $.ajaxSettings, this.options.source);
 		          }
         		}
         	}

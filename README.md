@@ -116,7 +116,7 @@ Events
 Options
 -----------------
 
-<table width="100%">
+<table>
 <thead>
 	<tr>
 		<th>
@@ -141,8 +141,7 @@ Options
             array, object, string
         </td>
         <td>
-        <pre>[]
-</pre>
+        <code>[]</code>
         </td>
         <td>
             Can use an array for a local data source, a URL for a remote data source or a full jQuery AJAX object
@@ -156,7 +155,7 @@ Options
             string, object
         </td>
 		<td>
-            'name'
+            <code>'name'</code>
         </td>
         <td>
             The property of the datasource to display
@@ -166,11 +165,11 @@ Options
         <td>
             item
         </td>
-		<td>
+				<td>
             string, function
         </td>
         <td>
-            '&lt;li&gt;&lt;a href=&quot;#&quot;&gt;&lt;/a&gt;&lt;/li&gt;'
+            <code>'&lt;li&gt;&lt;a href=&quot;#&quot;&gt;&lt;/a&gt;&lt;/li&gt;'</code>
         </td>
         <td>
 			The HTML rendering for a result item or template function.
@@ -184,7 +183,7 @@ Options
             int
         </td>
         <td>
-            8
+            <code>8</code>
         </td>
         <td>
 			The maximum number of items to show in the results.
@@ -199,7 +198,7 @@ Options
             int
         </td>
         <td>
-            1
+            <code>1</code>
         </td>
         <td>
 			The minimum number of characters required before doing a search
@@ -213,7 +212,7 @@ Options
             string
         </td>
         <td>
-            '&lt;ul class=&quot;typeahead dropdown-menu&quot;&gt;&lt;/ul&gt;'
+            <code>'&lt;ul class=&quot;typeahead dropdown-menu&quot;&gt;&lt;/ul&gt;'</code>
         </td>
         <td>
 			The HTML rendering for the results list.
@@ -227,10 +226,10 @@ Options
             string, object
         </td>
 		<td>
-            'id'
+            <code>'id'</code>
         </td>
         <td>
-            The property name or JSON object to be returned.  *Using a JSON object may require [json2.js](https://github.com/douglascrockford/JSON-js) in older browsers*
+            The property name or JSON object to be returned.  Using a JSON object may require [json2.js](https://github.com/douglascrockford/JSON-js) in older browsers
         </td>
     </tr>
 </table>
@@ -240,7 +239,10 @@ Change Log
 -----------------
 
 **2.0.0**
--
+- Added support for display templates
+- Cleaned up AJAX code and simplified usage (now inherits from `jQuery.ajaxSettings`)
+- Added support for complex `data-value` return objects (as JSON strings)
+- Improved docs and demos
 
 **1.2.2**
 
@@ -264,11 +266,3 @@ Change Log
 - Major code cleanup
 - Test cases added
 - Documentation improvements
-
-
-Road Map
------------------
-
-**1.3**
-
-- Add template support
