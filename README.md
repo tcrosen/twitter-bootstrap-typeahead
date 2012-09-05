@@ -4,13 +4,12 @@ Bootstrap Typeahead+
 v2.0.0<br />
 Terry Rosen [@rerrify](https://twitter.com/#!/rerrify)
 
-The Twitter Bootstrap Typeahead plugin + more awesomeness!<br />
-<http://twitter.github.com/bootstrap/javascript.html#typeahead>
-
-**jQuery 1.8 & Bootstrap 2.1 Compatible**
+The [Twitter Bootstrap Typeahead](http://twitter.github.com/bootstrap/javascript.html#typeahead) plugin + more awesomeness!
 
 Features
 -----------------
+
+- jQuery 1.8 & Bootstrap 2.1 compatible
 
 - Complex data sources
 
@@ -43,7 +42,7 @@ Features
 		  tmpl: _.template('<li id="<%= id %>"><a href="#"><%= name %></a></li>')
 		});
 
-Dependancies
+Dependencies
 -----------------
 - [Twitter Bootstrap](https://github.com/twitter/bootstrap) 2.0+
 - [jQuery](http://docs.jquery.com/Downloading_jQuery) 1.7+

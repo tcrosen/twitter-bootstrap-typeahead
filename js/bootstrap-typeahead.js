@@ -2,27 +2,9 @@
 //
 //  bootstrap-typeahead.js
 //
-//  Bootstrap Typeahead+
-//  v2.0.0
+//  Bootstrap Typeahead+ v2.0
+//	Terry Rosen
 //  https://github.com/tcrosen/twitter-bootstrap-typeahead
-//
-//
-//  Author
-//  ----------
-//  Terry Rosen
-//  tcrosen@gmail.com | @rerrify
-//
-//
-//  Description
-//  ----------
-//  Custom implementation of Twitter's Bootstrap Typeahead Plugin
-//  http://twitter.github.com/bootstrap/javascript.html#typeahead
-//
-//
-//  Requirements
-//  ----------
-//  jQuery 1.7+
-//  Twitter Bootstrap 2.0+
 //
 //  ----------------------------------------------------------------------------
 
@@ -69,8 +51,7 @@ function ($) {
         	if (this.options.source) {
         		if (typeof this.options.source === 'string') {
         			this.source = $.extend({}, $.ajaxSettings, { url: this.options.source })
-        		}
-        		else if (typeof this.options.source === 'object') {
+        		} else if (typeof this.options.source === 'object') {
 	            if (this.options.source instanceof Array) {
 	          		this.source = this.options.source;
 		          } else {
@@ -109,7 +90,6 @@ function ($) {
             		success: $.proxy(that.filter, that)
             	})
           	);
-
           } else {
             items = $.proxy(that.filter(that.source), that);
           }
