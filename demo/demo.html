@@ -49,6 +49,7 @@
 		  <li><a href="#basic-ajax">Basic AJAX</a></li>
 		  <li><a href="#complex-ajax">Complex AJAX</a></li>
 		  <li><a href="#templates">Templates</a></li>
+      <li><a href="#everything">Everything!</a></li>
 		</ul>
 		<div class="tab-content">
 		 	<div class="alert alert-block alert-success">
@@ -70,7 +71,6 @@
 		  <div class="tab-pane" id="some-customisation">
 		  	<h3>Features</h3>
 		  	<ul>
-		  		<li>Local data source</li>
 		  		<li>Custom <code>val</code> property</li>
 		  		<li>Limit results to 4</li>
 		  	</ul>
@@ -132,12 +132,43 @@
         <h3>Code</h3>
 <pre>$('#templates input').typeahead({
   source: src,
-  tmpl: _.template('&lt;li id="city-&lt;%= id %&gt;"&gt;&lt;a href="#"&gt;&lt;%= name %&gt;&lt;/a&gt;&lt;/li&gt;')
+  tmpl: _.template('&lt;li id="city-&lt;%= id %&gt;"&gt;&lt;a href="#"&gt;&lt;%= name %&gt;, &lt;%= state %&gt;&lt;/a&gt;&lt;/li&gt;')
+});</pre>
+        <h3>Try it!</h3>
+        <input type="text" class="span4" placeholder="Search..." />
+  </div>
+  <!-- Everything! -->
+  <div class="tab-pane" id="everything">
+        <h3>Features</h3>
+        <ul>
+          <li>Custom <code>val</code> property</li>
+          <li>Limit results to 4</li>
+          <li>AJAX data source (extends <code>jQuery.ajax()</code>)</li>
+          <li><a href="http://underscorejs.org/">Underscore.js</a> template to display items</li>
+        </ul>
+        <h3>Code</h3>
+<pre>$('#everything input').typeahead({
+  source: {
+    url: '/cities/list',
+    type: 'post',
+    beforeSend: function () {
+      $('.progress').show();
+    },
+    complete: function () {
+      $('.progress').hide();
+    }
+  },
+  minLength: 2,
+  val: { id: null, name: null, state: null },
+  tmpl: _.template('&lt;li id="city-&lt;%= id %&gt;"&gt;&lt;a href="#"&gt;&lt;%= name %&gt;, &lt;%= state %&gt;&lt;/a&gt;&lt;/li&gt;'),
+  itemSelected: function () {
+    alert('Congratulations you used everything!')
+  }
 });</pre>
         <h3>Try it!</h3>
         <input type="text" class="span4" placeholder="Search..." />
     </div>
-	</div>
+  </div>
   <footer><hr />
     <p><a href="https://twitter.com/share" class="twitter-share-button" data-url="https://github.com/tcrosen/twitter-bootstrap-typeahead" data-text="I'm using #Bootstrap Typeahead+ and love it!" data-via="rerrify" data-size="large">Tweet</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script></p>

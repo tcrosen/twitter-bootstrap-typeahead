@@ -46,7 +46,6 @@ Dependencies
 -----------------
 - [Twitter Bootstrap](https://github.com/twitter/bootstrap) 2.0+
 - [jQuery](http://docs.jquery.com/Downloading_jQuery) 1.7+
-- [json2.js](https://github.com/douglascrockford/JSON-js) *Only required if using complex object values with older browsers - see **val** below*
 
 Installation
 -----------------

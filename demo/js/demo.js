@@ -52,11 +52,31 @@ $(function () {
       	complete: function () {
       		$('.progress').hide();
       	}
-      }
+      },
+      minLength: 2
     });
 
     $('#templates input').typeahead({
       source: src,
-      tmpl: _.template('<li id="city-<%= id %>"><a href="#"><%= name %></a></li>')
+      tmpl: _.template('<li id="city-<%= id %>"><a href="#"><%= name %>, <%= state %> <%= country %></a></li>')
+    });
+
+    $('#everything input').typeahead({
+      source: {
+        url: '/cities/list',
+        type: 'post',
+        beforeSend: function () {
+          $('.progress').show();
+        },
+        complete: function () {
+          $('.progress').hide();
+        }
+      },
+      minLength: 2,
+      val: { id: null, name: null, state: null },
+      tmpl: _.template('<li id="city-<%= id %>"><a href="#"><%= name %>, <%= state %>, <%= country %></a></li>'),
+      itemSelected: function () {
+        alert('Congratulations you used everything!')
+      }
     });
 });

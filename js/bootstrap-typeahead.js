@@ -153,9 +153,9 @@ function ($) {
           return this;
         },
 
-        highlighter: function (item) {
+        highlighter: function (text) {
           var query = this.query.replace(/[\-\[\]{}()*+?.,\\\^$|#\s]/g, '\\$&');
-          return item.replace(new RegExp('(' + query + ')', 'ig'), function ($1, match) {
+          return text.replace(new RegExp('(' + query + ')', 'ig'), function ($1, match) {
             return '<strong>' + match + '</strong>';
           });
         },
@@ -176,7 +176,8 @@ function ($) {
               	i.attr('data-value', JSON.stringify($.extend({}, that.options.val, item)))
               }
 
-              i.find('a').html(that.highlighter(item[that.options.display], item));
+              console.log(that.options.display)
+              i.find('a').html(that.highlighter(item[that.options.display]));
               return i[0];
           });
 
