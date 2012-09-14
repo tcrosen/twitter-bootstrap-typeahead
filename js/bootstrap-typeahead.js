@@ -161,7 +161,9 @@ function ($) {
         },
 
         render: function (items) {
-          var that = this;
+          var that = this,
+          	$templateItem,
+          	$standardItem;
 
           items = $(items).map(function (i, item) {
           		if (that.options.tmpl) {
@@ -176,13 +178,24 @@ function ($) {
               	i.attr('data-value', JSON.stringify($.extend({}, that.options.val, item)))
               }
 
-              console.log(that.options.display)
-              i.find('a').html(that.highlighter(item[that.options.display]));
+              $templateItem = i.find('.typeahead-display-val');
+              $standardItem = i.find('a');
+
+              if ($templateItem.length) {
+              	$templateItem.html(that.highlighter(item[that.options.display]))
+              } else if ($standardItem.length) {
+              	$standardItem.html(that.highlighter(item[that.options.display]));
+              }
+
               return i[0];
           });
 
           items.first().addClass('active');
-          this.$menu.html(items);
+
+          setTimeout(function() {
+            that.$menu.html(items);
+          }, 250)
+
           return this;
         },
 

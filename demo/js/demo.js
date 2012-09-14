@@ -58,7 +58,7 @@ $(function () {
 
     $('#templates input').typeahead({
       source: src,
-      tmpl: _.template('<li id="city-<%= id %>"><a href="#"><%= name %>, <%= state %> <%= country %></a></li>')
+      tmpl: _.template('<li id="city-<%= id %>"><a href="#"><span class="typeahead-display-val"><%= name %></span>, <%= state %> <%= country %></a></li>')
     });
 
     $('#everything input').typeahead({
