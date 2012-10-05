@@ -11,7 +11,7 @@
 !
 function ($) {
 
-  "use strict";
+  'use strict';
 
   var _defaults = {
       source: [],
@@ -234,11 +234,9 @@ function ($) {
             .on('keyup', $.proxy(this.keyup, this));
 
           if (this.eventSupported('keydown')) {
-            this.$element
-              .on('keydown', $.proxy(this.keypress, this));
+            this.$element.on('keydown', $.proxy(this.keypress, this));
           } else {
-            this.$element
-              .on('keypress', $.proxy(this.keypress, this));
+            this.$element.on('keypress', $.proxy(this.keypress, this));
           }
 
           this.$menu
