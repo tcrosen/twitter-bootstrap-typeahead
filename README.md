@@ -3,17 +3,15 @@ Twitter Bootstrap Typeahead Plugin Extension
 
 * * *
 
-**2.0 coming soon with huge changes!**
+**UPDATE (Feb 21, 2013)**
 
-- Item templates
-- Simpler & more powerful Ajax interface
-- Item grouping
-- Complex objects as return values
-- jQuery 1.8 & Bootstrap 2.1 compatible
-- Better documentation & demos
-- ... lots more!
+I no longer have the time to maintain this plugin.  If you are looking for updated code, please take a look at the following to help you:
 
-Check out the development [here](https://github.com/tcrosen/twitter-bootstrap-typeahead/tree/2.0)
+- [Groups Branch](https://github.com/tcrosen/twitter-bootstrap-typeahead/tree/groups)
+
+- [2.0 Branch](https://github.com/tcrosen/twitter-bootstrap-typeahead/tree/2.0)
+
+- [Twitter's new advanced Typeahead](https://github.com/twitter/typeahead.js) - *Not associated with Bootstrap*
 
 * * *
 
