@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>    
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <script src="js/jquery.min.js" type="text/javascript"></script>
+    <script src="js/typeahead-groups.js" type="text/javascript"></script>    
+    <style>
+        body { padding-top: 50px; }
+    </style>
+    <script>
+    var data = [ 
+            { id: 1, 
+              name: 'AFC East', 
+              items: [ { id: 1, name: 'New England Patriots' },
+                       { id: 2, name: 'Buffalo Bills' },
+                       { id: 3, name: 'New York Jets' },
+                       { id: 4, name: 'Miami Dolphins' } ] 
+            },
+            { id: 2, 
+              name: 'AFC North', 
+              items: [ { id: 5, name: 'Baltimore Ravens' },
+                       { id: 6, name: 'Pittsburgh Steelers' },
+                       { id: 7, name: 'Cincinatti Bengals' },
+                       { id: 8, name: 'Cleveland Browns' } ] 
+            },
+            { id: 3, 
+              name: 'AFC West', 
+              items: [ { id: 9, name: 'Denver Broncos' },
+                       { id: 10, name: 'San Diego Chargers' },
+                       { id: 11, name: 'Oakland Raiders' },
+                       { id: 12, name: 'Kansas City Chiefs' } ] 
+            },
+            { id: 4, 
+              name: 'AFC South', 
+              items: [ { id: 13, name: 'Houston Texans' },
+                       { id: 14, name: 'Tennessee Titans' },
+                       { id: 15, name: 'Jacksonville Jaguars' },
+                       { id: 16, name: 'Indianapolis Colts' } ] 
+            },
+            { id: 5, 
+              name: 'NFC North', 
+              items: [ { id: 17, name: 'Chicago Bears' },
+                       { id: 18, name: 'New York Giants' },
+                       { id: 19, name: 'Green Bay Packers' },
+                       { id: 20, name: 'Detroit Lions' } ] 
+            }             
+           ];
+
+        $(function () {
+            $('[name^="Team"]').typeahead({
+                source: data,
+                itemSelected: function(item) {
+                    console.log(item);        
+                    $('#form-output').val('').val($('form').serialize());        
+                    $('#Team1-val').val('').val($('#Team1').val());
+                    $('#Team2-val').val('').val($('#Team2').val());
+                }
+            });
+        });
+    </script>
+</head>
+<body class="container">    
+    <h1>Typeahead Grouping Demo</h1>
+    <hr />
+    <form action="" class="form-horizontal" method="post">
+        <fieldset>
+            <div class="control-group">
+                <label class="control-label">Team 1:</label>
+                <div class="controls">
+                    <input type="text" class="input-xlarge" name="Team1" placeholder="Search first team..." />
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">Team 2:</label>
+                <div class="controls">
+                    <input type="text" class="input-xlarge" name="Team2" placeholder="Search second team..." />
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">POST Output:</label>
+                <div class="controls"><input type="text" class="input-xlarge" id="form-output" disabled />                   
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">$('#Team1').val():</label>
+                <div class="controls"><input type="text" class="input-xlarge" id="Team1-val" disabled />                   
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">$('#Team2').val():</label>
+                <div class="controls"><input type="text" class="input-xlarge" id="Team2-val" disabled />
+                </div>
+            </div>
+    </fieldset>
+    </form> 
+</body>
+</html>
